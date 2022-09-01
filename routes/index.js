@@ -1,6 +1,41 @@
 var express = require('express');
 var router = express.Router();
 
+
+let databike1 = {nom: "BIK045",
+ url: "/images/bike-1.jpg", 
+ prix: "679",
+ MEA : true,
+ stock: 12, 
+}
+ let databike2 = {nom: "ZOOK07",
+ url: `/images/bike-2.jpg`, 
+ prix: "999",
+ MEA : false,
+ stock: 9,   }
+ let databike3 = {nom: "TITANS",
+ url: "/images/bike-3.jpg", 
+ prix: "799",
+ MEA : true,
+ stock: 6,   }
+ let databike4 = {nom: "CEWO",
+ url: "/images/bike-4.jpg", 
+ prix: "1300",
+ MEA : false,
+ stock: 4,  }
+ let databike5 = {nom: "AMIG39",
+ url: "/images/bike-5.jpg", 
+ prix: "479",
+ MEA : true,
+ stock: 15,   }
+ let databike6 = {nom: "LIK099",
+ url: "/images/bike-6.jpg", 
+ prix: "869",
+ MEA : false,
+ stock: 10,  }
+
+let tabbike = [databike1 , databike2 , databike3 , databike4 , databike5 , databike6 ]
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
