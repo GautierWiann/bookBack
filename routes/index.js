@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/product', function(req, res, next) {
   console.log('test')
-  if(req.session.dataCardBike == undefined){
+  if(!req.session.dataCardBike ){
     req.session.dataCardBike = []
   }
 
