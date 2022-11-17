@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 
+const fetch = require('node-fetch');
+
+const NEWS_API_KEY = "59fabbf5710e4deca00d379da76f97bb";
+
+
 let databike1 = {nom: "BIK045",
  url: "/images/bike-1.jpg", 
  prix: "679",
@@ -53,6 +58,9 @@ router.get('/product', function(req, res, next) {
 
 router.get('/shop.ejs', function(req, res, next) {
   var alreadyExist = false ;
+  if(!req.session.dataCardBike ){
+    req.session.dataCardBike = []
+  }
 let fees 
   for ( let i = 0 ; i<req.session.dataCardBike.length ; i++) {
     if (req.session.dataCardBike[i].model == req.query.model) {
@@ -188,4 +196,15 @@ router.get('/success', (req, res) => {
   res.render('cancel');
  });
 
+router.get('/articles', (req, res) => {
+  fetch(`https://newsapi.org/v2/everything?sources=the-verge&apiKey=${NEWS_API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'ok') {
+        res.json({ articles: data.articles });
+      } else {
+        res.json({ articles: [] });
+      }
+    });
+});
 module.exports = router;   
