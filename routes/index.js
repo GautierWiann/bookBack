@@ -180,8 +180,8 @@ router.post('/create-checkout-session', async (req, res) => {
   ],
    line_items : stripe_card_items,
    mode : 'payment',
-   success_url: 'http://localhost:3000/success',
-   cancel_url: 'http://localhost:3000/cancel',
+   success_url: 'https://gautierwianni.vercel.app/success',
+   cancel_url: 'https://gautierwianni.vercel.app/cancel',
  }) 
 
 
